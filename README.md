@@ -1,1 +1,53 @@
 # PersonalWallet
+
+```
+/your_project_root
+    /backend
+        /app
+            /api
+                /v1
+                    /endpoints
+                        __init__.py
+                        user.py
+                        transactions.py
+                        debts.py
+                        accounts.py
+            /core
+                __init__.py
+                config.py
+                security.py
+            /crud
+                __init__.py
+                crud_user.py
+                crud_transactions.py
+                crud_debts.py
+                crud_accounts.py
+            /db
+                __init__.py
+                base_class.py
+                session.py
+            /models
+                __init__.py
+                user.py
+                transactions.py
+                debts.py
+                accounts.py
+            /schemas
+                __init__.py
+                user.py
+                transactions.py
+                debts.py
+                accounts.py
+            main.py
+        /tests
+            __init__.py
+            test_api.py
+            test_db.py
+    /frontend
+        app.py  # Your Streamlit app
+    /migrations
+    /alembic.ini
+    README.md
+    requirements.txt
+
+```
