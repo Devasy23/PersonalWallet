@@ -14,8 +14,12 @@ class PyObjectId(ObjectId):
         return ObjectId(v)
 
     @classmethod
-    def __modify_schema__(cls, field_schema):
-        field_schema.update(type="string")
+    def __get_pydantic_json_schema__(cls, v):
+        return {
+            "title": "ObjectId",
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+        }
 
 class User(BaseModel):
     id: Optional[PyObjectId] = Field(alias='_id')
