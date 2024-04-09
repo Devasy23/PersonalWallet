@@ -3,7 +3,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from typing import List
 from core.config import get_database
 from bson import ObjectId
-from models.user import PyObjectId
+from models.pyobjectid import PyObjectId
 import schemas.transaction as transaction_schema
 
 router = APIRouter()

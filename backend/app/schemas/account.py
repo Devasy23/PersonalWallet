@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from bson import ObjectId
-from models.user import PyObjectId
+from models.pyobjectid import PyObjectId
 
 class AccountBase(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias='_id')

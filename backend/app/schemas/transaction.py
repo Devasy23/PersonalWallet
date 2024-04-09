@@ -1,7 +1,7 @@
 # transaction_schema.py
 from pydantic import BaseModel, Field
 from typing import Optional
-from models.user import PyObjectId
+from models.pyobjectid import PyObjectId
 from bson import ObjectId
 
 

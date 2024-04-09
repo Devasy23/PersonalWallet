@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Body, Depends
 from motor.motor_asyncio import AsyncIOMotorClient
 from typing import List
+from models.pyobjectid import PyObjectId
 from core.config import get_database
 import schemas.account as account_schema
 
@@ -8,6 +9,14 @@ router = APIRouter()
 
 async def get_db_client() -> AsyncIOMotorClient:
     return get_database()
+
+@router.get("/{account_id}", response_model=account_schema.Account)
+async def get_account(account_id: PyObjectId, db: AsyncIOMotorClient = Depends(get_db_client)):
+    account = await db["accounts"].find_one({"_id": account_id})
+    if account:
+        return account
+    else:
+        raise HTTPException(status_code=404, detail="Account not found")
 
 @router.get("/", response_model=List[account_schema.Account])
 async def get_accounts(db: AsyncIOMotorClient = Depends(get_db_client)):
