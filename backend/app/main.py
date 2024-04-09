@@ -10,4 +10,4 @@ app.include_router(debts.router, prefix="/api/v1/debts", tags=["Debts"])
 app.include_router(accounts.router, prefix="/api/v1/accounts", tags=["Accounts"])
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000, reload=False)
