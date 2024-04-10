@@ -1,12 +1,14 @@
-from pydantic import BaseModel, Field
 from typing import Optional
+
 from bson import ObjectId
 from models.pyobjectid import PyObjectId
+from pydantic import BaseModel, Field
+
 
 class AccountBase(BaseModel):
-    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias='_id')
+    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
     user_id: PyObjectId = Field(default_factory=PyObjectId)
-    type: str
+    type: str  # Example values: "savings", "checking"
     balance: float
 
     class Config:
@@ -17,5 +19,6 @@ class AccountBase(BaseModel):
 class AccountCreate(AccountBase):
     pass
 
+
 class Account(AccountBase):
-    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias='_id')
+    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")

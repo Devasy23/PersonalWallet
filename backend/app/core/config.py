@@ -5,5 +5,6 @@ DATABASE_NAME = "your_database_name"
 client = AsyncIOMotorClient(DATABASE_URL)
 db = client[DATABASE_NAME]
 
+
 def get_database() -> AsyncIOMotorClient:
     return db
