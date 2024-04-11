@@ -16,10 +16,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the current directory contents into the container at /app
-COPY ./backend /app
+COPY ./backend/* /app
 
 # Expose the port the app runs in
 EXPOSE 8000
 
 # Define the command to run the app
-CMD ["python", "backend/app/main.py"]
+CMD ["python", "app/main.py"]
