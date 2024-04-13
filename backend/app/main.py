@@ -1,8 +1,19 @@
 import uvicorn
 from api.v1.endpoints import accounts, debts, transactions, user
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+
+# Allow CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 app.include_router(user.router, prefix="/api/v1/user", tags=["User"])
 app.include_router(
